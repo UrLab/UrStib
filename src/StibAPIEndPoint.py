@@ -1,7 +1,5 @@
-from requests import get
-
 class StibAPIEndPoint():
-	def __init__(self, url, recordFactory):
+	def __init__(self, url, getter):
 		self.url = url
 		self.recordFactory = recordFactory
 
@@ -9,5 +7,5 @@ class StibAPIEndPoint():
 		return self.url
 
 	def get(self, query):
-		return self.recordFactory.createCollection(get(self.url + query).json()["results"])
+		return getter.get(self.url + query.getURL())
 
