@@ -1,7 +1,7 @@
 class Query():
-	def __init__(self, url):
-		self.url = url
-		
-	def getURL(self):
-		return self.url
+	def __init__(self, request):
+		self.request = request
+
+	def getRequest(self):
+		return self.request
 

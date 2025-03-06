@@ -7,5 +7,5 @@ class StibAPIEndPoint():
 		return self.url
 
 	def get(self, query):
-		return getter.get(self.url + query.getURL())
+		return getter.get(self.url + query.getRequest())
 
