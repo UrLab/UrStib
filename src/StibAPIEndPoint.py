@@ -9,5 +9,5 @@ class StibAPIEndPoint():
 		return self.url
 
 	def get(self, query):
-		return self.recordFactory.createCollection(get(self.url + query))
+		return self.recordFactory.createCollection(get(self.url + query).json()["results"])
 
