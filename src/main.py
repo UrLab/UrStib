@@ -11,9 +11,6 @@ def main():
 	stopfactory = StopFactory()
 	endpoint = StibAPIEndPoint(url, stopfactory)
 	coll = endpoint.get(query)
-	print("NEVER GONNA GIVE YOU UP")
-	print("NEVER GONNA LET YOU DOWN")
-	print("NEVER GONNA TURN AROUND AND HURT YOU")
 	for stop in coll:
 		print(stop.getName(), stop.getPointId())
 
