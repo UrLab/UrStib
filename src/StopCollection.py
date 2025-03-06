@@ -1,5 +1,6 @@
 from json import loads
 from StopRecord import StopRecord
+from Collection import Collection
 from re import sub
 
 class StopCollection(Collection):
