@@ -1,3 +1,4 @@
+from HttpResponse import HttpResponse
 from requests import get
 
 class HttpGetter():
@@ -5,5 +6,5 @@ class HttpGetter():
 		pass
 
 	def get(self, url):
-		return get(url)
+		return HttpResponse(get(url))
 
