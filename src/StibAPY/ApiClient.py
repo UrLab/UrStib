@@ -7,6 +7,5 @@ class ApiClient():
 
 	def getStopIds(self, stopName):
 		endPoint = self.endPointFactory.createEndPoint(self.baseUrl + self.endpointUrlRepository.getStopsUrl())
-		endPoint.get(self.queryDirector.makeStopsQuery(stopName))
-		# TODO
+		return endPoint.get(self.queryDirector.constructStopQuery(stopName))
 

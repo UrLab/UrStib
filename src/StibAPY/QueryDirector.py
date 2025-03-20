@@ -2,7 +2,8 @@ class QueryDirector():
 	def __init__(self, queryBuilder):
 		self.queryBuilder = queryBuilder
 
-	def getQuery(self):
-		return self.queryBuilder
-		#TODO
+	def constructStopQuery(self, stopName):
+		self.queryBuilder.reset()
+		self.queryBuilder.setWhere(f"name like \"{stopName}\"")
+		return self.queryBuilder.getQuery()
 
