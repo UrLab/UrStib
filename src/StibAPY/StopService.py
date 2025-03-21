@@ -4,6 +4,6 @@ class StopService():
 		self.apiClient = apiClient
 
 	def searchStopsByName(self, name):
-		s:wq
-
+		stops = self.apiClient.getStopByName(name)
+		self.stopRepository.updateStops(stops)
 
