@@ -1,4 +1,4 @@
-class HttpResponse():
+class HttpResponse:
 	def __init__(self, response):
 		self.response = response
 

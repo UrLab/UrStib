@@ -13,3 +13,12 @@ class Stop():
 	def getGPSCoordinates(self):
 		return self.coordinates
 
+	def __eq__(self, other):
+		return self.id == other.getId()
+
+	def __hash__(self):
+		return hash(self.id)
+
+	def __str__(self):
+		return str((self.id, self.name))
+

@@ -1,7 +1,16 @@
-class Id():
-	def __init__(self, number):
-		self.number = number
+class Id:
+	def __init__(self, identifier):
+		self.identifier = identifier
 
-	def getNumber(self):
-		return self.number
+	def getIdentifier(self):
+		return self.identifier
+
+	def __str__(self):
+		return str(self.identifier)
+
+	def __eq__(self, other):
+		return self.identifier == other.getIdentifier()
+
+	def __hash__(self):
+		return hash(self.identifier)
 

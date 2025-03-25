@@ -6,5 +6,8 @@ class HttpGetter():
 		pass
 
 	def get(self, url):
-		return HttpResponse(get(url))
+		response = HttpResponse(get(url))
+		if response.ok:
+			return response
+		raise HttpError(response.status_code, response)
 

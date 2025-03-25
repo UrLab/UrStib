@@ -1,7 +1,14 @@
-from HttpGetter import HttpGetter
+from Query import Query
 
-link = "https://data.stib-mivb.be/api/explore/v2.1/catalog/datasets/waiting-time-rt-production/records?select=passingtimes&limit=100&offset=0&timezone=UTC&include_links=false&include_app_metas=false"
+baseUrl = "https://data.stib-mivb.be/api/explore/v2.1"
+queryUrlFormat = "?select={}&where={}&group_by={}&order_by={}&limit={}&offset={}&refine={}&exclude={}&lang={}&timezone={}&include_links={}&include_app_metas={}"
+q = Query(queryUrlFormat)
 
-response = HttpGetter().get(link)
+print(baseUrl+ "/catalog/datasets/stop-details-production/records" + str(q))
 
+def main(search):
+	apiClient = ApiClient(baseUrl, EndpointUrlRepository(), EndPointFactory(), QueryBuilder())
+	stopConverter = JSONStopConverter()
+	stopRepository = StopRepository([], stopConverter, apiClient)
+	stopService = StopService(stopRepository)
 
