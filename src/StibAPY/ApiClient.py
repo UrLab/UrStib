@@ -1,12 +1,10 @@
 class ApiClient():
-	def __init__(self, baseUrl, endpointUrlRepository, endPointFactory, queryDirector):
-		self.baseUrl = baseUrl
-		self.endpointUrlRepository = endpointUrlRepository
-		self.endPointFactory = endPointFactory
+	def __init__(self, endpointRepository, queryDirector):
+		self.endpointRepository = endpointRepository
 		self.queryDirector = queryDirector
 
-	def getStopsByName(self, stopName):
-		endPoint = self.endPointFactory.createEndPoint(self.baseUrl + self.endpointUrlRepository.getStopsUrl())
+	def searchStopsByName(self, stopName):
+		endPoint = self.endpointRepository.getStopsDetailsEndPoint()
 		response = endPoint.get(self.queryDirector.constructStopQuery(stopName))
 		return response.getJSON()
 

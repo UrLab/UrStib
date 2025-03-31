@@ -5,7 +5,7 @@ class StopRepository():
 		self.apiClient = apiClient
 
 	def searchByName(self, searchName):
-		stops = self.apiClient.getStopsByName(searchName)
+		stops = self.apiClient.searchStopsByName(searchName)
 		stops = self.stopConverter.convertStops(stops)
 		for stop in stops:
 			self.stops.add(stop)
