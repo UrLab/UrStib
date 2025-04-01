@@ -3,5 +3,5 @@ class StopService():
 		self.stopRepository = stopRepository
 
 	def searchStopsByName(self, search):
-		self.stopRepository.searchByName(search)
+		return self.stopRepository.searchByName(search)
 

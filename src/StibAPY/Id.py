@@ -8,6 +8,9 @@ class Id:
 	def __str__(self):
 		return str(self.identifier)
 
+	def __repr__(self):
+		return str(self.identifier)
+
 	def __eq__(self, other):
 		return self.identifier == other.getIdentifier()
 

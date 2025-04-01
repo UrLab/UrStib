@@ -9,3 +9,6 @@ class Name():
 	def getDutchName(self):
 		return self.dutchName
 
+	def __repr__(self):
+		return str((self.frenchName, self.dutchName))
+

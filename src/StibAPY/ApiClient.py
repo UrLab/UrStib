@@ -5,6 +5,7 @@ class ApiClient():
 
 	def searchStopsByName(self, stopName):
 		endPoint = self.endpointRepository.getStopsDetailsEndPoint()
-		response = endPoint.get(self.queryDirector.constructStopQuery(stopName))
+		query = self.queryDirector.constructStopQuery(stopName)
+		response = endPoint.get(query)
 		return response.getJSON()
 
