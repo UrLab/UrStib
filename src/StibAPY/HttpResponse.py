@@ -8,3 +8,6 @@ class HttpResponse:
 	def getJSON(self):
 		return self.response.json()
 
+	def isOk(self):
+		return self.response.ok
+

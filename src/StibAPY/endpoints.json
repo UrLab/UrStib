@@ -1,0 +1,12 @@
+{
+	"stop-details": "/catalog/datasets/stop-details-production/records",
+	"shapefiles": "/catalog/datasets/shapefiles-production/records",
+	"gtfs-routes": "/catalog/datasets/gtfs-routes-production/records",
+	"gtfs-files": "/catalog/datasets/gtfs-files-production/records",
+	"gtfs-stops": "/catalog/datasets/gtfs-stops-production/records",
+	"stops-by-line": "/catalog/datasets/stops-by-line-production/records",
+	"waiting-time-rt": "/catalog/datasets/waiting-time-rt-production/records",
+	"vehicle-position-rt": "/catalog/datasets/vehicle-position-rt-production/records",
+	"travellers-information-rt": "/catalog/datasets/travellers-information-rt-production/records"
+}
+
