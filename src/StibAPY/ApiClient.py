@@ -9,3 +9,9 @@ class ApiClient():
 		response = endPoint.get(query)
 		return response.getJSON()
 
+	def getPassingTimesByStopId(self, stopId):
+		endPoint = self.endpointRepository.getWaitingTimeEndPoint()
+		query = self.queryDirector.constructPassingTimesQuery(stopId)
+		response = endPoint.get(query)
+		return response.getJSON()
+

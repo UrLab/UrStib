@@ -14,10 +14,13 @@ def main(search):
 	queryBuilder = QueryBuilder()
 	apiClient = ApiClient(EndPointRepository(baseUrl, enpointsFile), QueryDirector(queryBuilder))
 	stopConverter = JSONStopConverter()
-	stopRepository = StopRepository([], stopConverter, apiClient)
+	stopRepository = StopRepository({}, stopConverter, apiClient)
 	stopService = StopService(stopRepository)
-	a = stopService.searchStopsByName(search)
-	print(a)
+	stops = stopService.searchStopsByName(search)
+	waitingTimes = []
+	for stop in stops:
+		waitingTimes.append(passingTimesService.getPassingTimesByStop(stop))
+	return waitingTimes
 
 if __name__ == "__main__":
 	from sys import argv

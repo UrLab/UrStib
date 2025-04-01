@@ -8,3 +8,9 @@ class QueryDirector():
 		self.queryBuilder.setLimit("100")
 		return self.queryBuilder.getQuery()
 
+	def constructPassingTimesQuery(self, stopId):
+		self.queryBuilder.reset()
+		self.queryBuilder.setWhere(f"pointid={stopId}")
+		self.queryBuilder.setLimit("100")
+		return self.queryBuilder.getQuery()
+
