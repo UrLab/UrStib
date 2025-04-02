@@ -9,6 +9,7 @@ from QueryDirector import QueryDirector
 from JSONPassingTimeConverter import JSONPassingTimeConverter
 from PassingTimesRepository import PassingTimesRepository
 from PassingTimesService import PassingTimesService
+from Time import Time
 
 baseUrl = "https://data.stib-mivb.be/api/explore/v2.1"
 enpointsFile = "endpoints.json"
@@ -26,8 +27,9 @@ def main(search):
 	waitingTimes = []
 	for stop in stops:
 		waitingTimes.extend(passingTimesService.getPassingTimesByStop(stop))
+	now = Time.now()
 	for waitingTime in waitingTimes:
-		print(waitingTime)
+		print(waitingTime.getLineId(), waitingTime.getDestination(), waitingTime.getRemainingTime(now), waitingTime.getMessage())
 
 if __name__ == "__main__":
 	from sys import argv

@@ -21,7 +21,10 @@ class JSONPassingTimeConverter:
 		return [self.convertPassingTime(passingTime) for passingTime in passingTimes]
 
 	def convertPassingTime(self, passingTimeJSON):
-		destination = Name(passingTimeJSON["destination"]["fr"], passingTimeJSON["destination"]["nl"])
+		try:
+			destination = Name(passingTimeJSON["destination"]["fr"], passingTimeJSON["destination"]["nl"])
+		except KeyError:
+			destination = Name("", "")
 		arrivalTime = Time(passingTimeJSON["expectedArrivalTime"])
 		lineId = Id(passingTimeJSON["lineId"])
 		try:
