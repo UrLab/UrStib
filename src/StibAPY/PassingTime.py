@@ -1,3 +1,5 @@
+from time import time
+
 class PassingTime():
 	def __init__(self, destination, arrivalTime, lineId, message):
 		self.destination = destination
@@ -16,4 +18,10 @@ class PassingTime():
 
 	def getMessage(self):
 		return self.message
+
+	def __str__(self):
+		return f"{self.lineId} {self.destination} {self.arrivalTime} {self.message}"
+
+	def __repr__(self):
+		return str(self)
 

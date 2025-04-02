@@ -12,3 +12,6 @@ class EndPointRepository:
 	def getStopsDetailsEndPoint(self):
 		return EndPoint(self.baseUrl + self.resourcePaths["stop-details"], HttpGetter())
 
+	def getWaitingTimeEndPoint(self):
+		return EndPoint(self.baseUrl + self.resourcePaths["waiting-time-rt"], HttpGetter())
+

@@ -1,4 +1,4 @@
-class PassingTimeRepository():
+class PassingTimesRepository():
 	def __init__(self, passingTimes, passingTimeConverter, apiClient):
 		self.passingTimes = passingTimes
 		self.passingTimeConverter = passingTimeConverter

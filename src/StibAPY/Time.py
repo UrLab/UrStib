@@ -5,3 +5,9 @@ class Time():
 	def getTime(self):
 		return self.timeStamp
 
+	def __str__(self):
+		return str(self.timeStamp)
+
+	def __repr__(self):
+		return str(self)
+

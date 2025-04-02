@@ -13,3 +13,9 @@ class Message():
 	def getEnglish(self):
 		return self.english
 
+	def __str__(self):
+		return self.french
+
+	def __repr__(self):
+		return str(self)
+
