@@ -9,6 +9,9 @@ class Name():
 	def getDutchName(self):
 		return self.dutchName
 
+	def __str__(self):
+		return self.frenchName
+
 	def __repr__(self):
-		return str((self.frenchName, self.dutchName))
+		return str(self)
 
