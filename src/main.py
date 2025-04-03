@@ -1,19 +1,37 @@
-from StopFactory import StopFactory
-from StibAPIEndPoint import StibAPIEndPoint
+from Query import Query
+from ApiClient import ApiClient
+from JSONStopConverter import JSONStopConverter
+from StopRepository import StopRepository
+from StopService import StopService
+from EndPointRepository import EndPointRepository
+from QueryBuilder import QueryBuilder
+from QueryDirector import QueryDirector
+from JSONPassingTimeConverter import JSONPassingTimeConverter
+from PassingTimesRepository import PassingTimesRepository
+from PassingTimesService import PassingTimesService
+from Time import Time
 
-dataset = "stop-details-production"
-endpointURL = "https://data.stib-mivb.be/api/explore/v2.1/catalog/datasets/" + dataset + "/records"
-query = "?where=name%20like%20%22ULB%22&limit=100&offset=0&timezone=UTC&include_links=false&include_app_metas=false"
+baseUrl = "https://data.stib-mivb.be/api/explore/v2.1"
+enpointsFile = "endpoints.json"
 
+def main(search):
+	queryBuilder = QueryBuilder()
+	apiClient = ApiClient(EndPointRepository(baseUrl, enpointsFile), QueryDirector(queryBuilder))
+	stopConverter = JSONStopConverter()
+	stopRepository = StopRepository(set(), stopConverter, apiClient)
+	stopService = StopService(stopRepository)
+	stops = stopService.searchStopsByName(search)
+	passingTimesConverter = JSONPassingTimeConverter()
+	passingTimesRepository = PassingTimesRepository(set(), passingTimesConverter, apiClient)
+	passingTimesService = PassingTimesService(passingTimesRepository)
+	waitingTimes = []
+	for stop in stops:
+		waitingTimes.extend(passingTimesService.getPassingTimesByStop(stop))
+	now = Time.now()
+	for waitingTime in waitingTimes:
+		print(waitingTime.getLineId(), waitingTime.getDestination(), waitingTime.getRemainingTime(now), waitingTime.getMessage())
 
-def main():
-	url = endpointURL
-	stopfactory = StopFactory()
-	endpoint = StibAPIEndPoint(url, stopfactory)
-	coll = endpoint.get(query)
-	for stop in coll:
-		print(stop.getName(), stop.getPointId())
-
-
-main()
+if __name__ == "__main__":
+	from sys import argv
+	main(argv[1])
 
