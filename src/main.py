@@ -29,6 +29,8 @@ def main(search):
 		waitingTimes.extend(passingTimesService.getPassingTimesByStop(stop))
 	now = Time.now()
 	for waitingTime in waitingTimes:
+		if (waitingTime.getDestination().getFrenchName() == ""):
+			continue
 		print(waitingTime.getLineId(), waitingTime.getDestination(), waitingTime.getRemainingTime(now), waitingTime.getMessage())
 
 if __name__ == "__main__":
