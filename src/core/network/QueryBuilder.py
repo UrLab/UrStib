@@ -1,4 +1,4 @@
-from Query import Query
+from .Query import Query
 
 class QueryBuilder():
 	def __init__(self):

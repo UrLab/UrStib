@@ -1,9 +1,5 @@
 from json import loads
-from Name import Name
-from Time import Time
-from Id import Id
-from Message import Message
-from PassingTime import PassingTime
+from core.models import Name, Time, Id, Message, PassingTime
 
 class JSONPassingTimeConverter:
 	def __init__(self):

@@ -1,6 +1,6 @@
 from datetime import datetime
 from zoneinfo import ZoneInfo
-from Duration import Duration
+from .Duration import Duration
 
 class Time:
 	@classmethod

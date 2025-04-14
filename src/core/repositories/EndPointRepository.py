@@ -1,5 +1,5 @@
-from HttpGetter import HttpGetter
-from EndPoint import EndPoint
+from core.network import HttpGetter
+from core.models import EndPoint
 from json import loads
 
 

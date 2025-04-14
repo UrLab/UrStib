@@ -1,5 +1,5 @@
-from HttpResponse import HttpResponse
-from HttpError import HttpError
+from .HttpResponse import HttpResponse
+from .HttpError import HttpError
 from requests import get
 
 class HttpGetter():

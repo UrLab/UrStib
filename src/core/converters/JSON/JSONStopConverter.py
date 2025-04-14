@@ -1,8 +1,5 @@
 from json import loads
-from Stop import Stop
-from Id import Id
-from Name import Name
-from GPSCoords import GPSCoords
+from core.models import Stop, Id, Name, GPSCoords
 
 class JSONStopConverter:
 	def __init__(self):
