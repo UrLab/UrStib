@@ -1,4 +1,4 @@
-from core import Query, ApiClient, JSONStopConverter, StopRepository, StopService, EndPointRepository, QueryBuilder, QueryDirector, JSONPassingTimeConverter, PassingTimeRepository, PassingTimesService
+from core import Query, ApiClient, JSONStopConverter, StopRepository, StopService, EndPointRepository, QueryBuilder, QueryDirector, JSONPassingTimeConverter, PassingTimesRepository, PassingTimesService
 
 baseUrl = "https://data.stib-mivb.be/api/explore/v2.1"
 enpointsFile = "endpoints.json"
