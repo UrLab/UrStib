@@ -2,6 +2,9 @@ class Duration():
 	def __init__(self, delta):
 		self.delta = delta
 
+	def __gt__(self, other):
+		return self.delta > other.delta
+
 	def __str__(self):
 		days = self.delta.seconds // 86400
 		hours = (self.delta.seconds // 3600) % 24
